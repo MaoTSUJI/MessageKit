@@ -59,7 +59,6 @@ extension ViewController: InputBarAccessoryViewDelegate {
         
         // メッセージの作成
         let message = Message(user: me, text: text, messageId: UUID().uuidString, sentDate: Date())
-        
         messageList.append(message)
         
         // 作成したメッセージを画面に追加
@@ -71,17 +70,18 @@ extension ViewController: InputBarAccessoryViewDelegate {
         // 返信を作成
         let other = ChatUser(senderId: "99999", displayName: "UserName")
         
-        var replyText:String = ""
+        var replyText: String = ""
+
         switch message.text {
-        case "名前":
+        case "名前","なまえ":
             replyText = "辻　真緒です"
-        case "年齢":
-            replyText = "あなたの年齢は？"
-        case "誕生日":
+        case "年齢", "年", "いくつ":
+            replyText = "教えません"
+        case "誕生日", "いつ生まれ":
             replyText = "3月6日生まれです"
         case "血液型":
             replyText = "AB型です"
-        case "出身地":
+        case "出身地", "どこ生まれ","出身":
             replyText = "ほぼ大阪な兵庫県です。"
         default:
             replyText = "よくわかりません"
